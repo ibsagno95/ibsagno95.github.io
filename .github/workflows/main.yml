@@ -1,23 +1,20 @@
 name: github action demo
-on:
-  - push
 jobs:
   Mkdocs-project:
     runs-on: ubuntu-latest
     steps:
       - name: "Clone repository"
-          uses: actions/checkout@v3
-      - name: "list repository files"
-          run: "ls-al"
-      - name: "install python"
-          uses: actions/setup-python@v2
-          with:
-            python-version:3.x
-      - name: "install mkdocs"
-          run: install mkdocs
-      - name: "deploy mkdocs"
-          run: mkdocs gh-deploy --force
-      - name: "Finish"
-          run: echo "Fin de l'éxécution"
-      - name: "Variables d'environnement"
-          run: printenv
+        uses: actions/checkout@v3
+
+      - name: "List repository files"
+        run: "ls -al"
+      - name: "Install python"
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: "Install mkdocs"
+        run: pip install mkdocs
+      - name: "Deploy project"
+        run: mkdocs gh-deploy --force
+      - name: "finish"
+        run: echo "🎉 The job was successful."
