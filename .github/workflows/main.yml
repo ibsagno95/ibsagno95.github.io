@@ -17,6 +17,6 @@ jobs:
       - name: "Install mkdocs"
         run: pip install mkdocs
       - name: "Deploy project"
-        run: mkdocs gh-deploy --force
+        run: mkdocs gh-deploy
       - name: "finish"
         run: echo "🎉 The job was successful."
